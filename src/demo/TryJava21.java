@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.SequencedCollection;
 
+import demo.features.DemoSequencedCollection;
+
 public class TryJava21 {
 
 	public static void main(String[] args) {
@@ -20,17 +22,10 @@ public class TryJava21 {
 
 		cities.lines().map(line -> "|" + line + "|").forEach(System.out::println);
 		
-		demoSequencedCollection();
+		DemoSequencedCollection.demoCollection();
 		
 	}
 
-	private static void demoSequencedCollection() {
-		SequencedCollection<String> collection = new ArrayList<String>(Arrays.asList("A", "B", "C"));
-		System.out.println("GetFirst: " + collection.getFirst());
-		System.out.println("GetFirst: " + collection.getLast());
-		collection.addFirst("1");
-		collection.addLast("2");
-		System.out.println(collection);
-	}
+
 	
 }
