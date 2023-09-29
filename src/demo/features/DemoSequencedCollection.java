@@ -5,8 +5,11 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.NavigableSet;
 import java.util.SequencedCollection;
 import java.util.SequencedSet;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class DemoSequencedCollection {
 
@@ -45,6 +48,18 @@ public class DemoSequencedCollection {
 			set.addFirst("1");
 			set.addLast("2");
 			System.out.println(set);
+		}
+		{ // TreeSet
+			TreeSet<String> treeset = new TreeSet<>(Arrays.asList("C", "B", "A"));
+			NavigableSet<String> navset = treeset;
+			SortedSet<String> sortedset = navset;
+			SequencedSet<String> set = sortedset;
+			System.out.println("GetFirst: " + set.getFirst());
+			System.out.println("GetLast: " + set.getLast());
+			//set.addFirst("1");//Unsupported
+			//set.addLast("2");//Unsupported
+			treeset.add("1");
+			System.out.println(set);			
 		}
 	}
 	
