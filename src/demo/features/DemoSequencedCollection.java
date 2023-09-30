@@ -3,10 +3,13 @@ package demo.features;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.NavigableSet;
 import java.util.SequencedCollection;
+import java.util.SequencedMap;
 import java.util.SequencedSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -60,6 +63,19 @@ public class DemoSequencedCollection {
 			//set.addLast("2");//Unsupported
 			treeset.add("1");
 			System.out.println(set);			
+		}
+	}
+	
+	public static void demoSequencedMap() {
+		System.out.println("-".repeat(12));
+		{ // LinkedHashMap
+			SequencedMap<String, String> map = new LinkedHashMap<>(Map.of("3", "C", "2", "B", "1", "A"));
+			System.out.println(map);
+			System.out.println("GetFirst: " + map.pollFirstEntry());
+			System.out.println("GetLast: " + map.pollLastEntry());
+			map.putFirst("5", "E");
+			map.putLast("6", "F");
+			System.out.println(map);
 		}
 	}
 	
