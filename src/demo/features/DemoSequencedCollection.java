@@ -7,11 +7,14 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.NavigableMap;
 import java.util.NavigableSet;
 import java.util.SequencedCollection;
 import java.util.SequencedMap;
 import java.util.SequencedSet;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class DemoSequencedCollection {
@@ -76,6 +79,29 @@ public class DemoSequencedCollection {
 			map.putFirst("5", "E");
 			map.putLast("6", "F");
 			System.out.println(map);
+		}
+		
+		{ // TreeMap
+			TreeMap<String, String> map = new TreeMap<>(Map.of("3", "C", "2", "B", "1", "A"));
+			
+			NavigableMap<String, String> navigablemap = map;
+			System.out.println(navigablemap);
+			//System.out.println("GetFirst: " + map.pollFirstEntry());
+			//System.out.println("GetLast: " + map.pollLastEntry());
+			//map.putFirst("5", "E"); // Unsupported Exception
+			//map.putLast("6", "F"); // Unsupported Exception
+			//System.out.println(map);
+			SortedMap<String, String> sortedmap = navigablemap;
+			System.out.println("SortedMap.FirstKey: " + sortedmap.firstKey());
+			System.out.println("SortedMap.lastKey: " + sortedmap.lastKey());
+			System.out.println("SortedMap.FirstEntry: " + sortedmap.firstEntry());
+			System.out.println("SortedMap.LastEntry: " + sortedmap.lastEntry());
+			
+			SequencedMap<String, String> sequencedmap = navigablemap;
+			System.out.println("SequencedMap.FirstEntry: " + sequencedmap.firstEntry());
+			System.out.println("SequencedMap.LastEntry: " + sequencedmap.lastEntry());
+			System.out.println("SequencedMap.SequencedKeySet: " + sequencedmap.sequencedKeySet());
+			
 		}
 	}
 	
