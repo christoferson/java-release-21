@@ -1,10 +1,7 @@
 package demo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.SequencedCollection;
-
 import demo.features.DemoSequencedCollection;
+import demo.features.DemoVirtualThreads;
 
 public class TryJava21 {
 
@@ -22,7 +19,11 @@ public class TryJava21 {
 
 		cities.lines().map(line -> "|" + line + "|").forEach(System.out::println);
 		
-		DemoSequencedCollection.demoCollection();
+		DemoSequencedCollection.demoSequencedCollection();
+		DemoSequencedCollection.demoSequencedSet();
+		DemoSequencedCollection.demoSequencedMap();
+		
+		DemoVirtualThreads.demoVirtualThreads();
 		
 	}
 
